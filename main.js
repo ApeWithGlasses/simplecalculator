@@ -83,8 +83,6 @@ const equal = () => {
     result();
 }
 
-
-
 const result = () => {
     let result = 0;
     switch (operator) {
