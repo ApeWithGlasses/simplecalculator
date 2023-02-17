@@ -1,7 +1,13 @@
 const output = document.querySelector('.output');
+const buttonElement = document.querySelectorAll('.button');
 let entryOne;
 let entryTwo;
 let operator;
+let counter = 0;
+
+output.style.fontSize = '70px';
+const text = output.textContent;
+const numCharacters = text.length = 8;
 
 const nine = () => {
     output.textContent = output.textContent + 9;
@@ -45,6 +51,7 @@ const zero = () => {
 
 const clean = () => {
     output.textContent = "";
+    counter = 0;
 }
 
 const plus = () => {
@@ -72,9 +79,11 @@ const frac = () => {
 }
 
 const reset = () => {
+    output.style.fontSize = '70px';
     output.textContent = "";
     entryOne = 0;
     entryTwo = 0;
+    counter = 0;
     operator = "";
 }
 
@@ -101,4 +110,28 @@ const result = () => {
     }
 
     output.textContent = result;
+}
+
+const sizeControl = () => {
+    if (counter >= 8) {
+        output.style.fontSize = '50px';
+    }
+    
+    if (counter >= 12) {
+        output.style.fontSize = '30px';
+    }
+
+    if (counter >= 20) {
+        output.style.fontSize = '20px';
+    }
+
+    if (counter == 31) {
+        alert('Detente ahí noob, son demasiados caracteres, ¿puedes de una vez por todas operar?');
+    }
+}
+
+const clickCounter = () => {
+    counter++;
+    console.log(counter);
+    sizeControl();
 }
